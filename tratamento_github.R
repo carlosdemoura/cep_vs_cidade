@@ -43,7 +43,7 @@ ibge =
   )
 
 ceps =
-  read.csv(here::here("ceps.csv")) |>
+  read.csv(here::here("ceps2.csv")) |>
   as_tibble() |>
   filter(CIDADE != "") |>
   mutate(CIDADE = stringi::stri_trans_general(tolower(CIDADE), "Latin-ASCII")) |>
