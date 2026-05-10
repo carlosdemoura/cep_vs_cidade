@@ -205,6 +205,11 @@ def _scrape_uf(uf: str, driver: webdriver.Chrome, retries: int, page_delay: floa
 
         # Resolve o captcha
         captcha_text = _solve_captcha(driver)
+        
+        if not captcha_text:
+            print(f"[{uf}] Captcha vazio — UF ignorada.\n")
+            return []
+        
         campo = driver.find_element(By.ID, "captcha")
         campo.clear()
         campo.send_keys(captcha_text)
